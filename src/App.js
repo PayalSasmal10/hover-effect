@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import { FaRegFolder } from "react-icons/fa";
 
 function App() {
+  const [data, setData] = useState(false);
+  const showName = (x) => {
+    setData(true);
+  };
+  const hiddenName = () => {
+    setData(false);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="">
+      {/* <p>{data}</p> */}
+      <FaRegFolder onMouseEnter={showName} onMouseLeave={hiddenName}/>
+      <p>{data? "Folder":""}</p>
     </div>
   );
 }
